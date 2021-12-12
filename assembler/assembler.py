@@ -41,7 +41,7 @@ J = {
 
 OUT = []
 
-with open("assembler/example.txt", "r") as file:
+with open("input.txt", "r") as file:
     lines = file.readlines()
     count = 0
 
@@ -88,7 +88,7 @@ with open("assembler/example.txt", "r") as file:
 print(OUT)
 
 try:
-    with open("assembler/output.txt", "w") as file:
+    with open("output.txt", "x") as file:
         file.write("v2.0 raw\n")
         for line in OUT:
             file.write(line[2:])
