@@ -29,3 +29,8 @@ f001
 e7fe
 ```
 You can load the output file directly into Logisim now!
+
+# Hoe to Use
+- create a file called `input.txt`
+- put in the folder with the `assembler.py`
+- run the python program normally
