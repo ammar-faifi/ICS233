@@ -41,6 +41,11 @@ J = {
 
 OUT = []
 
+
+def binf(num: str, fill: int):
+    return str(bin(int(num))[2:]).zfill(fill)
+
+
 with open("input.txt", "r") as file:
     lines = file.readlines()
     count = 0
@@ -51,33 +56,35 @@ with open("input.txt", "r") as file:
 
         if op in R:
             op, a, b, d = line.removesuffix("\n").split(" ")
-            # f = str(bin(R.get(op)[1])[2:]).zfill(2)
-            # op = str(bin(R.get(op)[0])[2:]).zfill(5)
+
             f = str(bin(R.get(op)[1])[2:]).zfill(2)
             op = str(bin(R.get(op)[0])[2:]).zfill(5)
-            a = str(bin(int(a[1:2]))[2:]).zfill(3)
-            b = str(bin(int(b[1:2]))[2:]).zfill(3)
-            d = str(bin(int(d[1:2]))[2:]).zfill(3)
+            a = binf(a[1:2], 3)
+            b = binf(b[1:2], 3)
+            d = binf(d[1:2], 3)
+
             inst = f"{op}{a}{b}{d}{f}"
             inst_hex = hex(int(inst, 2))
             OUT.append(inst_hex + "\n")
 
         elif op in I:
             op, a, b, imm = line.removesuffix("\n").split(" ")
-            # op = Bin(I.get(op)).format(5)
+
             op = str(bin(I.get(op))[2:]).zfill(5)
-            a = Bin(a[1:2]).format(3)
-            b = Bin(b[1:2]).format(3)
+            a = binf(a[1:2], 3)
+            b = binf(b[1:2], 3)
             imm = Bin(imm).format(5)
+
             inst = f"{op}{a}{b}{imm}"
             inst_hex = hex(int(inst, 2))
             OUT.append(inst_hex + "\n")
 
         elif op in J:
             op, imm = line.removesuffix("\n").split(" ")
-            # op = Num(J.get(op)).to(2)
+
             op = str(bin(J.get(op))[2:]).zfill(5)
             imm = Bin(imm).format(11)
+
             inst = f"{op}{imm}"
             inst_hex = hex(int(inst, 2))
             OUT.append(inst_hex + "\n")
@@ -88,7 +95,7 @@ with open("input.txt", "r") as file:
 print(OUT)
 
 try:
-    with open("output.txt", "x") as file:
+    with open("output.txt", "w") as file:
         file.write("v2.0 raw\n")
         for line in OUT:
             file.write(line[2:])
