@@ -1,10 +1,11 @@
-# ICS233
+# ICS233 Simple Assembler
+
 some files for the ICS233 course at KFUPM
 
 To simplify converting the instructions into its form in hex values to be used in the ROM instructions,
 I created this simple-like assembler program that might speed up writing your test cases.
 
-# IMPORTANT NOTES
+## IMPORTANT NOTES
 
 - The instructions are as those in the project document, but in lowercase only.
 - the labels like `labe:` not supported. you need to specifiy it with signed number, indicating how many instructions to skip.
@@ -13,24 +14,33 @@ I created this simple-like assembler program that might speed up writing your te
 - Do not use tabs, not supported yet.
 - use `$` for register number. i.e., `$0 - $7`.
 
-# Example
-```
+## How to Use
+
+- Clone this project or just download the `assembler.py` file.
+- You should have python3 installed.
+- You need to install the lib `radix-ops`, by writing in the command line `pip install radix-ops`
+- Create a file called `input.txt`, contains your instructions.
+- Put it in the same folder with the `assembler.py`.
+- Run the python program normally, `python3 assembler.py`
+- It will create `output.txt`.
+
+## Example
+
+```txt
 addi $0, $1, 1
-addi $1, $2, 0
+addi $2, $2, 1
 imm 1
 j -2
 ```
-The out put will be 
-```
+
+The out put will be
+
+```txt
 v2.0 raw
 4021
-4140
+4241
 f001
 e7fe
 ```
-You can load the output file directly into Logisim now!
 
-# Hoe to Use
-- create a file called `input.txt`
-- put in the folder with the `assembler.py`
-- run the python program normally
+You can load the output file directly into Logisim now!
