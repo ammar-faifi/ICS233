@@ -51,11 +51,11 @@ with open("input.txt", "r") as file:
     count = 0
 
     for line in lines:
-        op = line.removesuffix("\n").split(" ")[0]
+        op = line.rstrip("\n").split(" ")[0]
         count += 1
 
         if op in R:
-            op, a, b, d = line.removesuffix("\n").split(" ")
+            op, a, b, d = line.rstrip("\n").split(" ")
 
             f = str(bin(R.get(op)[1])[2:]).zfill(2)
             op = str(bin(R.get(op)[0])[2:]).zfill(5)
@@ -68,7 +68,7 @@ with open("input.txt", "r") as file:
             OUT.append(inst_hex + "\n")
 
         elif op in I:
-            op, a, b, imm = line.removesuffix("\n").split(" ")
+            op, a, b, imm = line.rstrip("\n").split(" ")
 
             op = str(bin(I.get(op))[2:]).zfill(5)
             a = binf(a[1:2], 3)
@@ -80,7 +80,7 @@ with open("input.txt", "r") as file:
             OUT.append(inst_hex + "\n")
 
         elif op in J:
-            op, imm = line.removesuffix("\n").split(" ")
+            op, imm = line.rstrip("\n").split(" ")
 
             op = str(bin(J.get(op))[2:]).zfill(5)
             imm = Bin(imm).format(11)
@@ -94,7 +94,7 @@ with open("input.txt", "r") as file:
 
 
 try:
-    with open("output.txt", "w") as file:
+    with open("/Users/ammar-imac/OneDrive - KFUPM/KFUPM/ICS233/test.txt", "w") as file:
         file.write("v2.0 raw\n")
         for line in OUT:
             file.write(line[2:].zfill(5))
