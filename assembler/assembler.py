@@ -93,13 +93,13 @@ with open("input.txt", "r") as file:
         else:
             exit(f"Error: `{op}` is not recognizable in line {count}")
 
-print(OUT)
 
 try:
     with open("output.txt", "w") as file:
         file.write("v2.0 raw\n")
         for line in OUT:
             file.write(line[2:].zfill(5))
+    print("DONE")
 
 except FileExistsError:
     print("ERROR: It seems there is a file has the exact name")
