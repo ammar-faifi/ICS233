@@ -65,7 +65,6 @@ with open("input.txt", "r") as file:
 
             inst = f"{op}{a}{b}{d}{f}"
             inst_hex = hex(int(inst, 2))
-            print(inst_hex)
             OUT.append(inst_hex + "\n")
 
         elif op in I:
