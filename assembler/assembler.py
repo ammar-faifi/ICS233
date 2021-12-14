@@ -94,7 +94,7 @@ with open("input.txt", "r") as file:
 
 
 try:
-    with open("/Users/ammar-imac/OneDrive - KFUPM/KFUPM/ICS233/test.txt", "w") as file:
+    with open("output.txt", "w") as file:
         file.write("v2.0 raw\n")
         for line in OUT:
             file.write(line[2:].zfill(5))
