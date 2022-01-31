@@ -1,6 +1,4 @@
-import sys
-import os
-from radix import Bin, Num
+from radix import Bin
 
 R = {
     "and": (0, 0),
